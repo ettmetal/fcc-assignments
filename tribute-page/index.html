@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ada Lovelace: a freeCodeCamp Tribute Page</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/railscasts.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" type="text/javascript"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="bernoulli.js" type="text/javascript"></script>
+</head>
+
+<body id="main" class="container">
+  <header class="page-head">
+    <h1 id="title" class="text-primary text-left">Ada Lovelace <small class="subtitle">The <em>first</em>
+      computer programmer</small></h1>
+  </header>
+  <section>
+    <h2 class="section-head text-center">Background</h2>
+    <p id="tribute-info">
+      Ada Lovelace was born in 1815. The daughter of Lord Byron and Lady Annabella Byron, their only legitemate child. Her mother insisted that she was tutored in
+      subjects such as mathematics and music from an early age. This type of education was unusual for women at the time, yet Lady Byron herself was versed in mathematics, Lord Byron referring to her as his 'Princess of Parrallelograms'.
+    </p>
+      <p>
+      Although such education was unusual for females at the time, Ada's mother
+      believed it would supress her imagination. Lady Byron believed poetry was the source of Lord Byron's 'ill disposition', prompted by his imagination. She believed subjects such as mathematics and music to be the counter to this poetic, imaginitive nature and hoped that by studying them, Ada would not inherit her father's disposition. <a id="tribute-link" href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank">Wikipedia has more information on Ada</a>.
+    </p>
+  </section>
+  <figure id="img-div" class="central-img">
+    <img id="image" class="img-responsive"
+         src="https://adainitiativedotorg.files.wordpress.com/2012/10/ada_lovelace_color.png"
+         alt="An Illustration of Ada Lovelace." />
+    <figcaption id="img-caption" class="text-center">A stylised portrait of Ada Lovelace</figcaption>
+  </figure>
+  <section>
+    <h2 class="section-head text-center">Ada, the Programmer</h2>
+    <p>
+      While not widley acknowledged during her life, Ada's legacy was her work with <a href="https://en.wikipedia.org/wiki/Charles_Babbage" target="_blank">Charles
+      Babbage</a>'s <a href="https://en.wikipedia.org/wiki/Analytical_Engine" target="_blank">Analytical Engine</a>. Although a full model was never built at the time, the analytical engine was designed to perform complex calculations. In modern times, a working model has been created to Babbage's exact specifications.
+    </p>
+    <p>
+      Mathematically and scientifically talented, Ada recognised potential in Babbage's analytical engine to go beyond pure calculation. She identified the potential for the machine to become a general-purpose computer while translating Italian mathemetician Louis Menebrea's memoir on the engine. In addition to translating, Ada included a set of her own notes on the subject. In her notes she details the first computer algorithm and details how other information, such as letters, can be encoded for the machine to work with. She even speculated as to the introduction of applications such as computer-generated music.
+    </p>
+  </section>
+  <aside>
+    <h2 class="section-head text-center">Ada's Algorithm</h2>
+    Known as Note G, for the translation note she recorded it in, the algorithm Ada wrote for the difference engine was intended to calculate Bernoulli numbers. Given a parameter n, her algorithm would calculate the numerator and denomenator for the n<sup>th</sup> Bernoulli number.
+    <!--<h3 class="text-center">Note G: JavaScript</h3>
+    <p>
+      In the spirit of <a href="https://freecodecamp.com">freeCodeCamp</a>, here is a look at the "code" for Ada's
+      algorithm. The algorithm happens in steps, . Based on the work of ---, I've transcribed the funciton into JavaScript. 
+    </p>
+    <pre class="pre-scrollable"><code class="javascript">
+function nthBernoulliNumber(n){
+  var V20plus;
+
+  var V1 = 1, V2 = 2, V3 = n;
+  while(true){
+    var i = 0;
+    while(true){
+
+      // Operation 1
+      var V4, V5, V6;
+      V4 = V5 = V6 = V2 * V3;
+
+      // Operation 2
+      V4 -= V1;
+
+      // Operation 3
+      V5 += V1;
+
+      // Operation 4
+      var V11 = V4 / V5;
+
+      // Operation 5
+      V11 /= V2;
+
+      // Operation 6
+      var V13 = -V11;
+
+      // Operation 7
+      var V10 = V3 - V1;
+      if(V10 == 0) break;
+
+      // Operation 8
+      var V7 = V2;
+
+      // Operation 9
+      V11 = V6 / V7;
+
+      // Operation 10
+      var V12 = V20plus[i] * V11;
+      i += 1;
+
+      // Operation 11
+      V13 += V12;
+
+      // Operation 12
+      V10 -= V1;
+      if(V10 == 0) break;
+      while(true){
+
+        // Operation 13
+        V6 -= V1;
+
+        // Operation 14
+        V7 += V1;
+
+        // Operation 15
+        var V8 = V6 / V7;
+
+        // Operation 16
+        V11 *= V8;
+
+        // Operation 17
+        V6 -= V1;
+
+        // Operation 18
+        V7 += V1;
+
+        // Operation 19
+        var V9 = V6 / V7;
+
+        // Operation 20
+        V11 *= V9;
+
+        // Operation 21
+        V12 = V20plus[i] * V11;
+        i += 1;
+
+        // Operation 22
+        V13 += V12;
+
+        // Operation 23
+        V10 -= V1;
+        if(V10 = 0) break;
+      }
+      break;
+    }
+
+    // Operation 24
+    V20plus[i] -= V13;
+
+    // Operation 25
+    V3 += V1;
+    V7 = V13 = 0;
+    if(i == n) break;
+  }
+  return V20plus[n];
+}
+            </code></pre>-->
+  </aside>
+  <!--<section>
+      <h2>The Bernoulli Calculator <small>Try it yourself</small></h2>
+      <p>
+        This Bernoulli Calculator uses the exact same JavaScript implmentation of Ada's algorithm shown on this page.
+        <em>Note that for very high numbers, this could take a while.</em>
+      </p>
+      <input name="calc-input" type="text" placeholder="Enter a number" id="calculator-input">
+      <button class="btn btn-primary" id="calculate">Calculate</button>
+      <output name="calulator-output-numerator" id="calc-out-num" for="calculator-input" value=""></output>
+    <output name="calulator-output-denomenator" id="calc-out-den" value=""></output>
+    </section>-->
+  <footer class="page-foot">
+    <p>
+    A tribute written, designed and coded by <a href="http://github.com/ettmetal" target="_blank">Joe Osborne</a>.</p><strong>Sources:</strong>
+    <ul class="sources">
+      <li><a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank">Ada Lovelace on Wikipedia</a></li>
+      <li><a href="https://www.biography.com/scholar/ada-lovelace" target="_blank">Ada Lovelace on Biography.com</a></li>
+      <li><a href="https://www.newyorker.com/tech/annals-of-technology/ada-lovelace-the-first-tech-visionary" target="_blank">Ada Lovelace, The First Tech Visionary on The New Yorker</a></li>
+      <li><a href="https://www.computerhistory.org/babbage/adalovelace/" target="_blank">Ada Lovelace on Computer History</a></li>
+      <li><a href="https://www.sdsc.edu/ScienceWomen/lovelace.html" target="_blank">Ada Lovelace article on the San Diego Supercomputer Center</a></li>
+      <!--<li><a href="https://gist.github.com/terotil/3f83a473f372d31f55d5" target="_blank">Note G in JavaScript by terotil on GitHub</a></li>-->
+    </ul>
+  </footer>
+</body>
+</html>
