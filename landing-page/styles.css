@@ -1,0 +1,333 @@
+/*need a variant oldschool.css to really give the 90s telemarketing vibes*/
+
+:root {
+    --brand-colour-1: #80e2f9;
+    --brand-colour-2: #80fa9f;
+    --brand-colour-3: #ffa2da;
+    --brand-colour-4: #f6fea1;
+    --brand-colour: var(--brand-colour-2);
+    --accent-colour: var(--brand-colour-4);
+    --background-colour: white;
+    --foreground-colour: black;
+    --hidden-colour: #111;
+  }
+  
+  /* Using vars this way lets me create repeating colour schemes easier. */
+  /* Can be improved (wouldn't require ensuring inheritance chains) by using a .alternating-color class, but requires that style information to be in the markup - I prefer to keep markup semantic */
+  
+  *:nth-of-type(1n) {
+    --brand-colour: var(--brand-colour-3);
+    --accent-colour: var(--brand-colour-2);
+  }
+  
+  *:nth-of-type(2n) {
+    --brand-colour: var(--brand-colour-2);
+    --accent-colour: var(--brand-colour-1);
+  }
+  
+  *:nth-of-type(3n) {
+    --brand-colour: var(--brand-colour-4);
+    --accent-colour: var(--brand-colour-3);
+  }
+  
+  *:nth-of-type(4n) {
+    --brand-colour: var(--brand-colour-1);
+    --accent-colour: var(--brand-colour-4);
+  }
+  
+  * {
+    box-sizing: border-box;
+    font-kerning: auto;
+  }
+  
+  body > header {
+    align-items: stretch;
+    background-color: var(--background-colour);
+    color: var(--brand-colour-1);
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index:100;
+  }
+  
+  body {
+    align-items: center;
+    background-color: var(--background-colour);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', sans-serif;
+    margin: auto 0;
+  }
+  
+  body > footer {
+    background-color: var(--foreground-colour);
+    color: var(--background-colour);
+  }
+  
+  body > footer a {
+    color: var(--background-colour);
+    text-decoration: none;
+  }
+  
+  body > footer a:hover {
+    text-decoration: underline;
+  }
+  
+  button:nth-of-type(n), i:nth-of-type(n), .feature header:nth-of-type(n) {
+    --brand-colour: inherit;
+    --accent-colour: inherit;
+  }
+  
+  input {
+    border-radius: 2em;
+    font-size: 1.141rem;
+    padding: 0 .5em;
+  }
+  
+  form input[type="email"] {
+    margin-bottom:.3em;
+  }
+  
+  button, input[type="submit"] {
+    border-color: var(--accent-colour);
+    border-radius: 2em;
+    background-color: var(--brand-colour);
+    font-size: 1.141rem;
+    padding: 0 .3em;
+  }
+  
+  button:hover, input[type="submit"]:hover {
+    box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.2);
+  }
+  
+  button i {
+    padding: 0 .3em;
+  }
+  
+  .links {
+    list-style: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Luckiest Guy', cursive;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+  }
+  
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  main {
+    margin-top: .5em;
+  }
+  
+  main > section {
+    background-color: var(--brand-colour);
+    padding: 0 1em;
+  }
+  
+  main > section > header {
+    flex-shrink: 0;
+    width: 100%;
+  }
+  
+  body > *:not(#header) {
+    width: 80vw;
+  }
+  
+  nav, nav ul {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+  }
+  
+  nav ul {
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    align-items: stretch;
+    display: flex;
+    background-color: var(--brand-colour);
+  }
+  
+  nav li:hover {
+    background-color: var(--accent-colour);
+  }
+  
+  nav a {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    margin: auto;
+    padding: 0 .25em;
+    vertical-align: middle;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em;
+    justify-content: space-between;
+  }
+  
+  #features {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: -10vw;
+    padding: 0 10vw 2.33em 10vw;
+    width: 100vw;
+  }
+  
+  #features {
+    --mask:
+      radial-gradient(2.62rem at 3.70rem 50%,#000 99%,#0000 101%) 0 calc(50% - 4rem)/51% 8rem repeat-y,
+      radial-gradient(2.62rem at -1.7rem 50%,#0000 99%,#000 101%) 2rem 50%/calc(51% - 2rem) 8rem repeat-y,
+          radial-gradient(2.62rem at calc(100% - 3.70rem) 50%,#000 99%,#0000 101%) 100% calc(50% - 4rem)/51% 8rem repeat-y,
+      radial-gradient(2.62rem at calc(100% + 1.70rem) 50%,#0000 99%,#000 101%) calc(100% - 2rem) 50%/calc(51% - 2rem) 8rem repeat-y;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  }
+  
+  #video {
+    aspect-ratio: 16 / 9;
+  
+  }
+  
+  .disclaimer, .disclaimer + * {
+    color: var(--hidden-colour);
+    font-size: .5rem;
+    margin:0;
+  }
+  
+  .links {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 2.5rem 0 0 0;
+  }
+  
+  .states {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Because glyphs are different sizes, these have slightly varying physical sizes and it bugs me but I cant worry about it rn */
+  
+  .feature, .price-point {
+    background-color: var(--background-colour);
+    border-radius: 1.5rem;
+    color: var(--foreground-colour);
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+  
+  .feature i {
+    aspect-ratio: 1;
+    background-color: var(--accent-colour);
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+    padding: .75em;
+  }
+  
+  .feature header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .feature h3 {
+    margin: 0 1em;
+  }
+  
+  .sr-only {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  #features > header {
+    width: 100%;
+  }
+  
+  #pricing {
+    display: grid;
+  }
+  
+  .price-point {
+    display: flex;
+    align-items: center;
+  }
+  
+  .price-point ul {
+    align-self: flex-start;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    #features {
+      flex-direction: row;
+    }
+  
+    .feature {
+      flex: 1 0 0;
+      margin: 0 1rem;
+    }
+  
+    .feature:first-child {
+      margin: 0;
+    }
+  
+    .feature:last-child {
+      margin-right: 0;
+    }
+  
+    .feature header {
+      flex-direction: column-reverse;
+    }
+  
+    .feature h3 {
+      margin: 0 0 .3rem 0;
+    }
+  
+    #pricing {
+      grid-template-columns: 1fr 1fr 1fr ;
+      grid-column-gap: 1em;
+    }
+    #pricing header {
+      grid-column: 1/-1;
+    }
+  }
+  
+  @media screen and (prefers-color-scheme: dark) {
+    :root {
+      --background-colour: #222;
+    --foreground-colour: white;
+    --hidden-colour: #eee;
+    }
+  }
