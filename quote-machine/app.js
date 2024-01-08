@@ -22,4 +22,7 @@ const showRandomQuote = () => {
   $("#author").html(quote.author);
 };
 
-$(document).ready(showRandomQuote);
+$(document).ready(() => {
+  $('#new-quote').on('click', showRandomQuote);
+  showRandomQuote();
+});
