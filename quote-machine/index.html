@@ -1,0 +1,27 @@
+<!--Cons: Doesn't work at all if JS is disabled, no fallback-->
+<html lang="en-GB">
+  <head>
+    <title>Random quote machine</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body class="container-fluid min-vh-100 d-flex flex-column justify-content-between">
+    <header class="row justify-content-center">
+      <h1 class="col col-md-4">Random quote selector</h1>
+    </header>
+    <main id="quote-box" class="row justify-content-center">
+      <blockquote class="col-12 col-md-4 align-self-center card">
+        <p id="text" class="card-body"></p>
+        <cite id="author"></cite>
+        <footer class="card-footer">
+          <a class="btn btn-primary" role="button" href="#" id="new-quote">New Quote</a>
+          <a class="btn btn-outline-primary" href="https://twitter.com/intent/tweet" id="tweet-quote" aria-label="Tweet this quote" title="Tweet this quote"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+        </footer>
+      </blockquote>
+    </main>
+    <footer class="row justify-content-center">
+      <p class="col-6">By <a href="https://joes.games" target="_blank">Joe McGeoch Osborne</a>.</p>
+    </footer>
+  </body>
+</html>
