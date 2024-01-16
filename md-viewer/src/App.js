@@ -1,25 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-function MarkdownInput() {
+function MarkdownInput(props) {
+  const updateInput = event => props.setter(event.target.value);
   return (
-    <form>
-      <input></input>
-    </form>
+    <textarea type="text" onChange={updateInput}>{props.markdown}</textarea>
   );
 }
 
-function MarkdownViewer() {
+MarkdownInput.defaultProps = {
+  markdown: ''
+};
+
+MarkdownInput.propTypes = {
+  markdown: PropTypes.string.isRequired,
+  markdownSetter: PropTypes.func.isRequired
+};
+
+function MarkdownViewer(props) {
   return (
-    <div>Placeholder</div>
+    <>
+      <div>Placeholder</div>
+      <div>{props.markdown}</div>
+    </>
   );
 }
 
 // TODO: Support file upload / import?
+// TODO: Support file export
+// TODO: Supoprt file print / to PDF or rendered?
 
 function App() {
+  const [markdown, setMarkdown] = useState('');
   return (
-    <div className="App">
+    <>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -35,10 +51,10 @@ function App() {
         </a>
       </header>
       <main>
-        <MarkdownInput />
-        <MarkdownViewer />
+        <MarkdownInput setter={setMarkdown} />
+        <MarkdownViewer markdown={markdown} />
       </main>
-    </div>
+    </>
   );
 }
 
