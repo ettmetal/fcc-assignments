@@ -1,30 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import MarkdownInput from './MarkdownInput';
 import { useState } from 'react';
-import PropTypes from 'prop-types';
-
-function MarkdownInput(props) {
-  const updateInput = event => props.setter(event.target.value);
-  return (
-    <textarea type="text" onChange={updateInput}>{props.markdown}</textarea>
-  );
-}
-
-MarkdownInput.defaultProps = {
-  markdown: ''
-};
-
-MarkdownInput.propTypes = {
-  markdown: PropTypes.string.isRequired,
-  markdownSetter: PropTypes.func.isRequired
-};
+import Markdown from 'react-markdown';
 
 function MarkdownViewer(props) {
   return (
-    <>
-      <div>Placeholder</div>
-      <div>{props.markdown}</div>
-    </>
+    <output>
+      <Markdown>{props.markdown}</Markdown>
+    </output>
   );
 }
 
@@ -37,18 +21,7 @@ function App() {
   return (
     <>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Markdown editor</h1>
       </header>
       <main>
         <MarkdownInput setter={setMarkdown} />
