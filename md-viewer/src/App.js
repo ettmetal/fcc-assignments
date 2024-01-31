@@ -9,14 +9,14 @@ import { useState } from 'react';
 // TODO: Supoprt file print / to PDF or rendered?
 
 function App() {
-  const [markdown, setMarkdown] = useState('');
+  const [markdown, setMarkdown] = useState('# Hello world!\nI am some demo markdown.');
   return (
     <>
       <header className="App-header">
         <h1>Markdown editor</h1>
       </header>
       <main>
-        <MarkdownInput setter={setMarkdown} />
+        <MarkdownInput markdownSetter={setMarkdown} />
         <MarkdownViewer markdown={markdown} />
       </main>
     </>
