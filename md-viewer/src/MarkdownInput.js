@@ -13,7 +13,7 @@ function MarkdownInput(props) {
 }
 
 MarkdownInput.defaultProps = {
-    markdown: ''
+    markdown: '# Hello world!\nI am some demo markdown.'
 };
 
 MarkdownInput.propTypes = {
