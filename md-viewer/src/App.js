@@ -1,16 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import MarkdownInput from './MarkdownInput';
+import MarkdownViewer from './MarkdownViewer';
 import { useState } from 'react';
-import Markdown from 'react-markdown';
-
-function MarkdownViewer(props) {
-  return (
-    <output>
-      <Markdown>{props.markdown}</Markdown>
-    </output>
-  );
-}
 
 // TODO: Support file upload / import?
 // TODO: Support file export
