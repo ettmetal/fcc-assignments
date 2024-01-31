@@ -6,7 +6,7 @@ function MarkdownInput(props) {
     const updateInput = event => props.setter(event.target.value);
         return (
             <>
-                <label for="markdownInput">Type markdown:</label>
+                <label htmlFor="markdownInput">Type markdown:</label>
                 <textarea type="text" id="markdownInput" onChange={updateInput}>{props.markdown}</textarea>
             </>
         );
