@@ -5,7 +5,10 @@ import PropTypes from 'prop-types';
 function MarkdownInput(props) {
     const updateInput = event => props.setter(event.target.value);
         return (
-            <textarea type="text" onChange={updateInput}>{props.markdown}</textarea>
+            <>
+                <label for="markdownInput">Type markdown:</label>
+                <textarea type="text" id="markdownInput" onChange={updateInput}>{props.markdown}</textarea>
+            </>
         );
 }
 
