@@ -1,4 +1,5 @@
 import Markdown from 'react-markdown';
+import './MarkdownViewer.css';
 
 function MarkdownViewer(props) {
     return (
