@@ -3,8 +3,8 @@ import Markdown from 'react-markdown';
 function MarkdownViewer(props) {
     return (
       <>
-        <label htmlFor="markdown-output">Rendered markdown:</label>
-        <output id="markdown-output">
+        <label htmlFor="preview">Rendered markdown:</label>
+        <output id="preview">
             <Markdown>{props.markdown}</Markdown>
         </output>
       </>
