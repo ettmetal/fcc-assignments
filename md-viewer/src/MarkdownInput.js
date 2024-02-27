@@ -7,7 +7,7 @@ function MarkdownInput(props) {
     return (
         <>
             <label htmlFor="editor">Type markdown:</label>
-            <textarea type="text" id="editor" onChange={updateInput} defaultValue={props.markdown}></textarea>
+            <textarea type="text" id="editor" onChange={updateInput} defaultValue={props.markdown} rows="30"></textarea>
         </>
     );
 }

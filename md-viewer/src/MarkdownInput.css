@@ -2,5 +2,7 @@ textarea {
     background-color: var(--color-dark);
     border-radius: 0.5em;
     color: var(--color-base);
+    max-width: 100%;
     padding: .6em;
+    resize: vertical;
 }
