@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Site Title</title>
+		<link rel="stylesheet" href="./styles.css" />
+		<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+	</head>
+	<body>
+		<section id="survey">
+			<h1 id="title">Contribute a Character</h1>
+			<p id="description">
+			Thanks for helping us generate ideas for our characters! Just let us know some basics about them, so that we can get a feel for the character. Remember to use your <strong>own</strong> email address so that we can contact you with any follow-up questions!
+			</p>
+			<form id="survey-form" class="character-form">
+			<label id="email-label" for="email">Your Email Address</label>
+			<input type="email" id="email" placeholder="handle@example.com" required/>
+			<label id="name-label" for="name">Character Name</label>
+			<input type="textarea" id="name" placeholder="Mary Berry" required/>
+			<label id="number-label" for="number">Character Age</label>
+			<input type="number" id="number" min="10" max="100" placeholder="42"/>
+			<label for="dropdown">Moral Alignment:</label>
+			<select id="dropdown" class="input">
+				<option>Lawful Good</option>
+				<option>Neutral Good</option>
+				<option>Chaotic Good</option>
+				<option>Lawful Neutral</option>
+				<option>True Neutral</option>
+				<option>Chaotic Neutral</option>
+				<option>Lawful Evil</option>
+				<option>Neutral Evil</option>
+				<option>Chaotic Evil</option>
+			</select>
+			<label for="character-type">Character Type</label>
+			<fieldset id="character-type">
+				<label for="radio-1">Major</label>
+				<input type="radio" name="radio" id="radio-1" value="major" />
+				<label for="radio-2">Minor</label>
+				<input type="radio" name="radio" id="radio-2" value="minor" />
+			</fieldset>
+			<label for="checkbox-1">Is the character a magic user?</label>
+			<input type="checkbox" id="checkbox-1" value="uses magic" />
+			<label for="checkbox">Do you want us to contact you for further information on your character?</label>
+			<input type="checkbox" value="wants contact"/>
+			<label for="comments">Character Background</label>
+			<textarea id="comments" class="input" placeholder="Write a few short paragraphs to give us an idea of your character. Think about what they're doing, what motivates them and what might prevent them from attaining their goals. Also, think about what they might do during their 'off' time, and how they interact with others."></textarea>
+		
+			<button id="submit" class="button input">Submit</button>
+			</form>
+		</section>
+	</body>
+</html>

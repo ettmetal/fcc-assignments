@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Technical Documentation Project: ARIA Roles</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>
+        <h1 class="title">ARIA Roles</h1>
+      </header>
+      <ul>
+        <li><a href="#Introduction" class="nav-link">Introduction</a></li>
+        <li><a href="#Using_ARIA_roles" class="nav-link">Using ARIA roles</a></li>
+        <li><a href="#Document_Structure_roles" class="nav-link">Document Structure roles</a></li>
+        <li><a href="#Widget_roles" class="nav-link">Widget roles</a></li>
+        <li><a href="#Landmark_roles" class="nav-link">Landmark roles</a></li>
+        <li><a href="#Live_region_roles" class="nav-link">Live region roles</a></li>
+        <li><a href="#Window_roles" class="nav-link">Window roles</a></li>
+        <li><a href="#Abstract_roles" class="nav-link">Abstract roles</a></li>
+        <li><a href="#References" class="nav-link">References</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Introduction">
+        <header>
+          <h1>Introduction</h1>
+        </header>
+        <p>
+          ARIA roles are a mechanism for declaring that an HTML element is performing a different role in a page or webapp than the one defined by the HTML standards. They are one part of the <a href="https://www.w3.org/TR/wai-aria/">ARIA</a> specs for creating accessible webpages and webapps. The specs also include a set of attributes which help convey the state of various objects defined by these roles.
+        </p>
+        <p>
+          This is often necessary because the role of the element does not yet have an HTML element explicitly associated with it, or may not yet have widespread support across browsers.
+        </p>
+        <p>
+          ARIA roles allow assigning a semantic role to an element in a page.
+        </p>
+        <p>
+          In order to make use of ARIA roles, you should have an understanding of HTML, including semantic markup, and attributes.
+        </p>
+      </section>
+      <section class="main-section" id="Using_ARIA_roles">
+        <header>
+          <h1>Using ARIA roles</h1>
+        </header>
+        <p>
+          Most ARIA roles are simple to apply to HTML code. Some roles have additional information they need to work with to be a useful representation of the element they are describing, but applying the role is as simple as adding it's name to an element's role attribute: <code>&lt;div role="note"&gt;</code>.
+        </p>
+        <p>
+          There are some <a href="https://www.w3.org/TR/using-aria/#rule1">rules that guide the usage of ARIA roles</a>, though.
+        </p>
+        <ol>
+          <li>If you can achieve the same semantic effect with a built-in element <strong>you should do so</strong></li>
+          <li>Do not change native semantics, unless you must</li>
+          <li>All ARIA elements which have interactions must support those interactions with a keyboard</li>
+          <li>Do not use ARIA techniques (e.g. <code>role="presentation"</code>) to hide focusable elements</li>
+          <li>All interactive elements must have an <a href="https://www.w3.org/TR/accname-1.1/#dfn-accessible-name">accessible name</a>.</li>
+        </ol>
+      </section>
+      <section class="main-section" id="Document_Structure_roles">
+        <header>
+          <h1>Document Structure roles</h1>
+        </header>
+        <p>
+          Document structure roles describe the role an element plays in organising the content of a page. Most of these roles describe structure in the same way that a semantic HTML element does. Roles which don't have wide support as an HTML equivalent are:
+        </p>
+        <ul>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/toolbar_role"/>toolbar</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/tooltip_role"/>tooltip</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/feed_role">feed</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/math_role">math</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/presentation_role">presentation</a> / <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/none_role">none</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/note_role">note</a></li>
+        </ul>
+        <p>
+          Because of <a href="#Using_ARIA_roles">the rule of using ARIA roles</a>, it's important only to use roles which don't have an equivalent in HTML semantic tags, or when for other reasons it is not possible to use that markup.
+        </p>
+      </section>
+      <section class="main-section" id="Widget_roles">
+        <header>
+          <h1>Widget roles</h1>
+        </header>
+        <p>
+          These roles describe <strong>interactive</strong> patterns. Similar to <a href="#Document_structure_roles">Document structure roles</a>, widget roles are often supported with standard semantic HTML elements. The difference is that interactivity of these widgets will usually need to be provided by JavaScript, regardless of if they are used from HTML or defined with ARIA roles. Many of these roles can be used by standalone elements, or as part of composites however some are reserved for describing composite widgets - often containers for other widgets.
+        </p>
+        <p>
+          Some of the widget roles which are not well-covered by HTML semantics are:
+        </p>
+        <ul>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/scrollbar_role">scrollbar</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/searchbox_role">searchbox</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/separator_role">separator</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/slider_role">slider</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/spinbutton_role">spinbutton</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/switch_role">switch</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/tab_role">tab</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/tabpanel_role">tabpanel</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/treeitem_role">treeitem</a></li>
+        </ul>
+        <pre class="example"><code>&lt;div&gt;
+    &lt;div role="tablist"&gt;
+        &lt;button role="tab" onclick="tabSelect(1);"&gt;Tab 1&lt;/button&gt;
+        &lt;button role="tab" onclick="tabSelect(2);"&gt;Tab 2&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div role="tabpanel" id="tab-1"&gt;
+        &lt;!--Content for first tab--&gt;
+    &lt;/div&gt;
+
+    &lt;div role="tabpanel" id="tab-2"&gt;
+        &lt;!--Content for second tab--&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+      <section class="main-section" id="Landmark_roles">
+        <header>
+          <h1>Landmark roles</h1>
+        </header>
+        <p>
+          Landmark roles provide landmarks for high-level organisation of a page. Many of them will <a href="https://www.a11yproject.com/posts/aria-landmark-roles/#toc_HTML5-implicit-mappings-of-Landmark-roles">automatically apply to semantic HTML elements</a>, such as <code>role="navigation"</code>, which is automatically applied to <code>&lt;nav&gt;</code> elements. Some of these roles, such as <code>role="banner"</code> are only applied if certain conditions are met.
+        </p>
+        <p>
+          Typically, these are used by assistive technologies to provide quick (e.g. keyboard-driven) navigation to different parts of a page. Because of this, overuse of these roles can create a busy conceptual layout which is harder to understand.
+        </p>
+      </section>
+      <section class="main-section" id="Live_region_roles">
+        <header>
+          <h1>Live region roles</h1>
+        </header>
+        <p>
+          Live region roles define parts of a page which can be updated dynamically <em>and which may not be the user's primary focus</em>. When defined this way, assistive technologies know they should "watch" these areas for changes, and inform the user of changes that happen. For example, a screen reader might announce a change in a region with one of these roles. There are five live region roles:
+        </p>
+        <ul>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/alert_role">alert</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/log_role">log</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/marquee_role">marquee</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/status_role">status</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/timer_role">timer</a></li>
+        </ul>
+        <p>
+          The most common live region role is the alert role. It is important not to overuse alerts because they are intrusive.
+        </p>
+        <pre class="example"><code>&lt;div role="alert"&gt;
+  Something went wrong!
+&lt;/div&gt;</code></pre>
+      </section>
+      <section class="main-section" id="Window_roles">
+        <header>
+          <h1>Window roles</h1>
+        </header>
+        <p>
+          These roles define elements which act as sub-windows which are placed within the same window. There are currently two types:
+        </p>
+        <ul>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/dialog_role">dialog</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/alertdialog_role">alertdialog</a></li>
+        </ul>
+        <p>
+          The alertdialog role is a combination of the alert <a href="#Live_region_roles">live region role</a> and the dialog role. The two are differentiated by their need for user interaction: if no user interaction is required, it is an alert. Otherwise, it should be an alertdialog.
+        </p>
+        <pre class="example"><code>&lt;div role="alertdialog"&gt;
+  Something went wrong! We can try to continue, or cancel the operation. Which whould you like?
+  &lt;button onclick="continueOperation();"&gt;Continue&lt;/button&gt;
+  &lt;button onclick="cancelOperation();"&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+      <section class="main-section" id="Abstract_roles">
+        <header>
+          <h1>Abstract roles</h1>
+        </header>
+        <p>
+          Abstract roles are a type of role reserved for classifying the types of roles used in ARIA specifications. They are used by web browsers to aid in organising a page, but <strong>they must not be used in HTML content</strong>. These are the abstract ARIA roles:
+        </p>
+        <ul>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/command_role">command</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/composite_role">composite</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/input_role">input</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/landmark_role">landmark</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/range_role">range</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/roletype_role">roletype</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/section_role">section</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/sectionhead_role">sectionhead</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/select_role">select</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/structure_role">structure</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/widget_role">widget</a></li>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/window_role">window</a></li>
+        </ul>
+      </section>
+      <section class="main-section" id="References">
+        <header>
+          <h1>References</h1>
+        </header>
+        <p>
+          All the information presented here is detailed across the following sources:
+        </p>
+        <ul>
+          <li><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles">WAI-ARIA Roles - Accessibility</a></li>
+          <li><a href="https://www.w3.org/TR/wai-aria/#document_structure_roles">Accessible Rich Internet Applications (WAI-ARIA) 1.2</a></li>
+          <li><a href="https://www.a11yproject.com/posts/an-indepth-guide-to-aria-roles/">An in-depth guide to ARIA roles</a></li>
+          <li><a href="https://www.w3.org/TR/using-aria/">Using ARIA</a></li>
+          <li><a href="https://www.a11yproject.com/posts/aria-landmark-roles/">ARIA Landmark roles and HTML5 implicit mapping</a></li>
+      </section>
+    </main>
+  </body>
+</html>
