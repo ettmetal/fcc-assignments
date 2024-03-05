@@ -28,8 +28,7 @@ jobs:
                 cd ./md-viewer
                 npm install
                 npm run build
-                mv ./public ./md-viewer
-                cp -a ./md-viewer ../public/md-viewer
+                mv ./build ../public/md-viewer
                 cd ../
             
             - name: Deploy
