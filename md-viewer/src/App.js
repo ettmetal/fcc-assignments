@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import MarkdownInput from './MarkdownInput';
 import MarkdownViewer from './MarkdownViewer';

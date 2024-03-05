@@ -1,4 +1,4 @@
-import FileSaver, { saveAs } from 'file-saver';
+import FileSaver from 'file-saver';
 
 function MarkdownExporter(props) {
     const save = () => {
