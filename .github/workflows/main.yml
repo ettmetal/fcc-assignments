@@ -37,6 +37,8 @@ jobs:
 
       - name: Upload
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: "public/"
 
   deploy:
     needs: build
