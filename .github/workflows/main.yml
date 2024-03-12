@@ -27,7 +27,7 @@ jobs:
                 cp -a ./portfolio-project ./public/portfolio-project
                 cp -a ./tribute-page ./public/tribute-page
 
-            - name: Build & copy markdown viewer
+            - name: Build and copy markdown viewer
               run: |
                 cd ./md-viewer
                 npm install
