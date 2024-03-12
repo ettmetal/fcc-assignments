@@ -2,52 +2,52 @@ name: Main
 on: [push]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        permissions:
-            contents: write
+    permissions:
+      contents: write
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4.1.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
 
-            - name: Setup
-              run: |
-                mkdir public
-            
-            - name: Copy index
-              run: cp index.html public/index.html
+      - name: Setup
+        run: |
+          mkdir public
+      
+      - name: Copy index
+        run: cp index.html public/index.html
 
-            - name: Copy static pages
-              run: |
-                cp -a ./docs-page ./public/docs-page
-                cp -a ./survey-form ./public/survey-form
-                cp -a ./landing-page ./public/landing-page
-                cp -a ./portfolio-project ./public/portfolio-project
-                cp -a ./tribute-page ./public/tribute-page
+      - name: Copy static pages
+        run: |
+          cp -a ./docs-page ./public/docs-page
+          cp -a ./survey-form ./public/survey-form
+          cp -a ./landing-page ./public/landing-page
+          cp -a ./portfolio-project ./public/portfolio-project
+          cp -a ./tribute-page ./public/tribute-page
 
-            - name: Build and copy markdown viewer
-              run: |
-                cd ./md-viewer
-                npm install
-                npm run build
-                mv ./build ../public/md-viewer
-                cd ../
-          
-			- name: Upload
-			  uses: actions/upload-pages-artifact@v3
+      - name: Build & copy markdown viewer
+        run: |
+          cd ./md-viewer
+          npm install
+          npm run build
+          mv ./build ../public/md-viewer
+          cd ../
 
-	deploy:
-		needs: build
-		permissions:
-			pages: write
-			id-token: write
-		environment:
-			name: github-pages
-			url: ${{ steps.deployment.outputs.page_url }}
-		runs-on: ubuntu-latest
-		steps:
-			- name: Deploy to GitHub Pages
-			  id: deployment
-			  uses: actions/deploy-pages@v4
+      - name: Upload
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
