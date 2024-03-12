@@ -26,6 +26,7 @@ jobs:
           cp -a ./landing-page ./public/landing-page
           cp -a ./portfolio-project ./public/portfolio-project
           cp -a ./tribute-page ./public/tribute-page
+          cp -a ./quote-machine ./public/quote-machine
 
       - name: Build & copy markdown viewer
         run: |
