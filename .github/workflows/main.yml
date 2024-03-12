@@ -2,7 +2,7 @@ name: Main
 on: [push]
 
 jobs:
-    build-and-deploy:
+    build:
         runs-on: ubuntu-latest
 
         permissions:
@@ -34,8 +34,20 @@ jobs:
                 npm run build
                 mv ./build ../public/md-viewer
                 cd ../
-            
-            - name: Deploy
-              uses: JamesIves/github-pages-deploy-action@v4
-              with:
-                folder: public
+          
+			- name: Upload
+			  uses: actions/upload-pages-artifact@v3
+
+	deploy:
+		needs: build
+		permissions:
+			pages: write
+			id-token: write
+		environment:
+			name: github-pages
+			url: ${{ steps.deployment.outputs.page_url }}
+		runs-on: ubuntu-latest
+		steps:
+			- name: Deploy to GitHub Pages
+			  id: deployment
+			  uses: actions/deploy-pages@v4
