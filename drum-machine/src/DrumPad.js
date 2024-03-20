@@ -33,6 +33,7 @@ function DrumPad(props) {
             // Teardown, equivalent to ''
             window.removeEventListener('keydown', keyDown);
         };
+        // eslint-disable-next-line
     }, []);
 
     return (
