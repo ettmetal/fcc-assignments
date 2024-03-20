@@ -35,6 +35,14 @@ jobs:
           npm run build
           mv ./build ../public/md-viewer
           cd ../
+      
+      - name: Build & copy drum machine
+        run: |
+          cd ./drum-machine
+          npm install
+          npm run build
+          mv ./build ../public/drum-machine
+          cd ../
 
       - name: Upload
         uses: actions/upload-pages-artifact@v3
