@@ -2,7 +2,8 @@
     background-color: var(--accent-color);
     border-radius: 1rem;
     color: var(--text-color);
+    font-size: 2em;
     font-weight: 800;
-    padding: 3em;
+    padding: 1em;
     text-transform: uppercase;
 }

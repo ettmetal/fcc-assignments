@@ -1,10 +1,25 @@
 #drum-machine {
-    background-color: var(--accent-color);
-    border: 2px solid black;
-    border-radius: 2em;
-    color: var(--text-color);
+    display: grid;
+    gap: .25em;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2em;
 }
 
 #display {
-    padding: 2rem;
+    background-color: var(--display-color);
+    font-family: monospace;
+    font-size: 2em;
+    grid-column: 1 / 4;
+    grid-row: 1 / span 1;
+    padding: 2rem 0;
+    place-self: center;
+    text-align: center;
+    width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+    #drum-machine {
+        align-self: center;
+        width: fit-content;
+    }
 }
