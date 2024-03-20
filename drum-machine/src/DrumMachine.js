@@ -65,7 +65,7 @@ function DrumMachine(props) {
     return (
         <>
             {
-                tracks.map((track, _) => <DrumPad name={track.name} src={track.src} trigger={track.trigger} setPlaying={setPlaying}/>)
+                tracks.map((track, _) => <DrumPad name={track.name} src={track.src} trigger={track.trigger} setPlaying={setPlaying} key={track.trigger}/>)
             }
             <output id="display">{playing}</output>
         </>
