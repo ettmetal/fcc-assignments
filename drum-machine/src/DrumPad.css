@@ -1,0 +1,8 @@
+.drum-pad {
+    background-color: var(--accent-color);
+    border-radius: 1rem;
+    color: var(--text-color);
+    font-weight: 800;
+    padding: 3em;
+    text-transform: uppercase;
+}
