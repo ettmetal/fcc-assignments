@@ -1,0 +1,98 @@
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5,1fr);
+    grid-gap: .2rem;
+}
+
+.keypad * {
+    aspect-ratio: 1;
+}
+
+.key {
+    background-color: #CBAC88;
+}
+
+.number-key {
+    background-color: #F8E9E9;
+}
+
+#equals {
+    aspect-ratio: .5;
+    grid-row: 4 / 6;
+    grid-column: 4 / 5;
+}
+
+#clear, #zero {
+    aspect-ratio: 2;
+    grid-column: span 2;
+}
+
+#clear {
+    background-color: #EDB6A3;
+    order: 0;
+}
+
+#divide {
+    order: 1;
+}
+
+#multiply {
+    order: 2;
+}
+
+#seven {
+    order: 5;
+}
+
+#eight {
+    order: 6;
+}
+
+#nine {
+    order: 7;
+}
+
+#subtract {
+    order: 8;
+}
+
+#four {
+    order: 9;
+}
+
+#five {
+    order: 10;
+}
+
+#six {
+    order: 11;
+}
+
+#add {
+    order: 12;
+}
+
+#one {
+    order: 13;
+}
+
+#two {
+    order: 14;
+}
+
+#three {
+    order: 15;
+}
+
+#zero {
+    order: 16;
+}
+
+#decimal {
+    order: 17;
+}
+
+#equals {
+    order: 18;
+}

@@ -1,0 +1,14 @@
+.calculator {
+    background-color: #69995D;
+    border: solid .2rem #69995D;
+    display: flex;
+    flex-direction: column;
+    font-size: 2em;
+}
+
+@media screen and (min-width: 1200px) {
+    .calculator {
+        max-width: 33vw;
+        width: fit-content;
+    }
+}
