@@ -44,6 +44,14 @@ jobs:
           mv ./build ../public/drum-machine
           cd ../
 
+      - name: Build & copy calculator
+        run: |
+          cd ./calculator
+          npm install
+          npm run build
+          mv ./build ../public/calculator
+          cd ../
+
       - name: Upload
         uses: actions/upload-pages-artifact@v3
         with:
