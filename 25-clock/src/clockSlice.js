@@ -5,25 +5,31 @@ const doubleDecimalRe = /\.{2,}/g;
 const duplicateDecimalRe = /(?<=([+/*-]|^)\d*\.\d+)\./g;
 const extraOperatorsRe = /[+*/-]+(?=[*/+])/g;
 
+// TODO: Current session reset
+
 export const clockSlice = createSlice({
-    name: 'expression',
+    name: 'clock',
     initialState: {
-        value: 0
+        value: {
+            phase: "Session",
+            sessionLength: 25,
+            breakLength: 5,
+            timeSinceStart: 0
+        }
     },
     reducers: {
         append: (state, action) => {
             state.value = (state.value + action.payload).replace(leadingZerosRe, '').replace(doubleDecimalRe, '.').replace(duplicateDecimalRe, '').replace(extraOperatorsRe, '')
         },
-        clear: (state) => {
-            state.value = "0"
+        increment: (state, action) => {
+            state.value[`${action.payload}Length`] = Math.min(state.value[`${action.payload}Length`] + 1, 61)
         },
-        evaluate: (state) => {
-            // eslint-disable-next-line
-            state.value = eval(state.value).toString()
+        decrement: (state, action) => {
+            state.value[`${action.payload}Length`] = Math.max(state.value[`${action.payload}Length`] - 1, 1)
         }
     }
 });
 
-export const {append, clear, evaluate} = clockSlice.actions;
+export const {append, increment, decrement} = clockSlice.actions;
 
 export default clockSlice.reducer;

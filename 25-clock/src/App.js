@@ -7,7 +7,9 @@ function App() {
       <header>
         <h1>25 Clock</h1>
       </header>
-      <Clock />
+      <main>
+        <Clock />
+      </main>
       <footer>
         By Joe McGeoch Osborne
       </footer>
