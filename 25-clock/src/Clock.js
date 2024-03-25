@@ -7,14 +7,14 @@ import { tick } from "./clockSlice";
 import './Clock.css';
 
 function Clock(props) {
-    const isActive = useSelector(state => state.clock.value.running);
+    const isRunning = useSelector(state => state.clock.value.running);
     const dispatch = useDispatch();
 
     // Stuff like this makes it really hard to see how functionality is linked
 
     useEffect(() => {
         let interval;
-        if(isActive) {
+        if(isRunning) {
             interval = setInterval(() => {
                 dispatch(tick());
             }, 1000);
@@ -23,7 +23,7 @@ function Clock(props) {
             clearInterval(interval);
         }
         return () => clearInterval(interval);
-    },[isActive, dispatch, tick]);
+    },[isRunning, dispatch, tick]);
 
     return (
         <>

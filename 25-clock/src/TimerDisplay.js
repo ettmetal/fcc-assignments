@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 function TimerDisplay() {
     const length = useSelector(state => state.clock.value[`${state.clock.value.phase.toLowerCase()}Length`]);
     const timeSinceStart = useSelector(state => state.clock.value.timeSinceStart);
+
     const remaining = length - timeSinceStart;
     const minutesRemaining = Math.floor(remaining / 60);
     const secondsRemaining = remaining % 60;
+
     return(
         <section className="timer">
             <header>
