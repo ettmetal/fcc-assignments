@@ -5,18 +5,18 @@ export const clockSlice = createSlice({
     initialState: {
         value: {
             phase: "Session",
-            sessionLength: 25,
-            breakLength: 5,
+            sessionLength: 25 * 60,
+            breakLength: 5 * 60,
             timeSinceStart: 0,
             running: false
         }
     },
     reducers: {
         increment: (state, action) => {
-            state.value[`${action.payload}Length`] = Math.min(state.value[`${action.payload}Length`] + 1, 61)
+            state.value[`${action.payload}Length`] = Math.min(state.value[`${action.payload}Length`] + 60, 61 * 60)
         },
         decrement: (state, action) => {
-            state.value[`${action.payload}Length`] = Math.max(state.value[`${action.payload}Length`] - 1, 1)
+            state.value[`${action.payload}Length`] = Math.max(state.value[`${action.payload}Length`] - 60, 1 * 60)
         },
         tick: (state) => {
             state.value.timeSinceStart += 1;
@@ -33,8 +33,8 @@ export const clockSlice = createSlice({
         },
         reset: (state) => {
             state.value.running = false;
-            state.sessionLength = 25;
-            state.breakLength = 5;
+            state.sessionLength = 25 * 60;
+            state.breakLength = 5 * 60;
             state.timeSinceStart = 0;
         }
     }

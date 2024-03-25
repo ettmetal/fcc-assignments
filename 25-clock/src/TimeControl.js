@@ -17,7 +17,7 @@ function TimeControl({type}) {
                     <i className="fa-solid fa-arrow-down" title={`Decrease ${type} time`}></i>
                 </button>
                 <output id={`${type}-length`} htmlFor={`${type}-decrement ${type}-increment`}>
-                    {useSelector(state => state.clock.value[`${type}Length`])}
+                    {useSelector(state => Math.floor(state.clock.value[`${type}Length`] / 60))}
                 </output>
                 <button id={`${type}-increment`} onClick={() => dispatch(increment(type))}>
                     <i className="fa-solid fa-arrow-up" title={`Increase ${type} time`}></i>
