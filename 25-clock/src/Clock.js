@@ -1,4 +1,5 @@
 import TimeControl from "./TimeControl";
+import TimerControls from "./TimerControls";
 import TimerDisplay from "./TimerDisplay";
 
 // TODO: Add controls
@@ -10,6 +11,7 @@ function Clock(props) {
             <TimeControl type="break"></TimeControl>
             <TimeControl type="session"></TimeControl>
             <TimerDisplay />
+            <TimerControls />
         </>
     );
 }

@@ -14,7 +14,8 @@ export const clockSlice = createSlice({
             phase: "Session",
             sessionLength: 25,
             breakLength: 5,
-            timeSinceStart: 0
+            timeSinceStart: 0,
+            running: false
         }
     },
     reducers: {
