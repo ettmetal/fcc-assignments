@@ -34,9 +34,9 @@ export const clockSlice = createSlice({
         },
         reset: (state) => {
             state.value.running = false;
-            state.sessionLength = 25 * 60;
-            state.breakLength = 5 * 60;
-            state.timeSinceStart = 0;
+            state.value.sessionLength = 25 * 60;
+            state.value.breakLength = 5 * 60;
+            state.value.timeSinceStart = 0;
         }
     }
 });
