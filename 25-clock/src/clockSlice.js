@@ -20,6 +20,7 @@ export const clockSlice = createSlice({
         },
         tick: (state) => {
             state.value.timeSinceStart += 1;
+            // TODO: Implement phase switching
         },
         start: (state) => {
             state.value.running = true;
