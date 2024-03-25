@@ -13,7 +13,7 @@ export const clockSlice = createSlice({
     },
     reducers: {
         increment: (state, action) => {
-            state.value[`${action.payload}Length`] = Math.min(state.value[`${action.payload}Length`] + 60, 61 * 60)
+            state.value[`${action.payload}Length`] = Math.min(state.value[`${action.payload}Length`] + 60, 60 * 60)
         },
         decrement: (state, action) => {
             state.value[`${action.payload}Length`] = Math.max(state.value[`${action.payload}Length`] - 60, 1 * 60)
