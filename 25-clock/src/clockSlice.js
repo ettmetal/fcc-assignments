@@ -1,12 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const leadingZerosRe = /(?<=[+/*-]|^)(0*)(?!$)/g;
-const doubleDecimalRe = /\.{2,}/g;
-const duplicateDecimalRe = /(?<=([+/*-]|^)\d*\.\d+)\./g;
-const extraOperatorsRe = /[+*/-]+(?=[*/+])/g;
-
-// TODO: Current session reset
-
 export const clockSlice = createSlice({
     name: 'clock',
     initialState: {
@@ -19,18 +12,34 @@ export const clockSlice = createSlice({
         }
     },
     reducers: {
-        append: (state, action) => {
-            state.value = (state.value + action.payload).replace(leadingZerosRe, '').replace(doubleDecimalRe, '.').replace(duplicateDecimalRe, '').replace(extraOperatorsRe, '')
-        },
         increment: (state, action) => {
             state.value[`${action.payload}Length`] = Math.min(state.value[`${action.payload}Length`] + 1, 61)
         },
         decrement: (state, action) => {
             state.value[`${action.payload}Length`] = Math.max(state.value[`${action.payload}Length`] - 1, 1)
+        },
+        tick: (state) => {
+            state.value.timeSinceStart += 1;
+        },
+        start: (state) => {
+            state.value.running = true;
+        },
+        stop: (state) => {
+            state.value.running = false;
+            state.timeSinceStart = 0;
+        },
+        pause: (state) => {
+            state.running = false;
+        },
+        reset: (state) => {
+            state.value.running = false;
+            state.sessionLength = 25;
+            state.breakLength = 5;
+            state.timeSinceStart = 0;
         }
     }
 });
 
-export const {append, increment, decrement} = clockSlice.actions;
+export const {increment, decrement, tick, start, stop, pause, reset} = clockSlice.actions;
 
 export default clockSlice.reducer;
