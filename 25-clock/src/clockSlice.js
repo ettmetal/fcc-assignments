@@ -29,7 +29,8 @@ export const clockSlice = createSlice({
             state.timeSinceStart = 0;
         },
         pause: (state) => {
-            state.running = false;
+            // It's too easy to forget ".value" - it just feels superfluous
+            state.value.running = false;
         },
         reset: (state) => {
             state.value.running = false;
