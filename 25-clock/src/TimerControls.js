@@ -8,7 +8,7 @@ function TimerControls(){
     let startStopLabel = running ? "Stop the timer" : "Start the timer";
 
     const dispatch = useDispatch();
-    const startStopAction = useSelector(state => state.clock.value.running) ? start : stop;
+    const startStopAction = useSelector(state => state.clock.value.running) ? stop : start;
 
     return (
         <menu>
