@@ -14,13 +14,13 @@ function TimeControl({type}) {
         <>
             <label id={`${type}-label`}>
                 <button id={`${type}-decrement`} onClick={() => dispatch(decrement(type))}>
-                    <i class="fa-solid fa-arrow-down" title={`Decrease ${type} time`}></i>
+                    <i className="fa-solid fa-arrow-down" title={`Decrease ${type} time`}></i>
                 </button>
-                <output id={`${type}-length`}>
+                <output id={`${type}-length`} htmlFor={`${type}-decrement ${type}-increment`}>
                     {useSelector(state => state.clock.value[`${type}Length`])}
                 </output>
                 <button id={`${type}-increment`} onClick={() => dispatch(increment(type))}>
-                    <i class="fa-solid fa-arrow-up" title={`Increase ${type} time`}></i>
+                    <i className="fa-solid fa-arrow-up" title={`Increase ${type} time`}></i>
                 </button>
             </label>
         </>
