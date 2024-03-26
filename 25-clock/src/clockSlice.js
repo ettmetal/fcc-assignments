@@ -20,7 +20,11 @@ export const clockSlice = createSlice({
         },
         tick: (state) => {
             state.value.timeSinceStart += 1;
-            // TODO: Implement phase switching
+            if(state.value.timeSinceStart > state.value[`${state.value.phase.toLowerCase()}Length`]){
+                // Phase over
+                state.value.phase = state.value.phase == "Session" ? "Break" : "Session";
+                state.value.timeSinceStart = 0;
+            }
         },
         start: (state) => {
             state.value.running = true;
