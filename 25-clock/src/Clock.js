@@ -1,10 +1,12 @@
 import TimeControl from "./TimeControl";
 import TimerControls from "./TimerControls";
 import TimerDisplay from "./TimerDisplay";
+import Beeper from "./Beeper";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { tick } from "./clockSlice";
 import './Clock.css';
+import alert from './alert.mp3';
 
 function Clock(props) {
     const isRunning = useSelector(state => state.clock.value.running);
@@ -31,6 +33,7 @@ function Clock(props) {
             <TimeControl type="session"></TimeControl>
             <TimerDisplay />
             <TimerControls />
+            <Beeper source={alert} />
         </>
     );
 }
