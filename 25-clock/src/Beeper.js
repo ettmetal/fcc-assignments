@@ -4,18 +4,17 @@ import { useSelector } from "react-redux";
 function Beeper({source}) {
     const audioRef = useRef(null);
 
-    const phaseOver = useSelector(state => state.clock.value.running && state.clock.value.timeSinceStart > state.clock.value[`${state.clock.value.phase.toLowerCase()}Length`]);
-    const wasReset = useSelector(state => true);
+    const playBeep = useSelector(state => state.clock.value.playBeep);
 
     useEffect(() => {
-        if(phaseOver){
+        if(playBeep){
             audioRef.current.play();
         }
-        else if(wasReset) {
+        else {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
         }
-    }, [audioRef, phaseOver, wasReset]);
+    }, [audioRef, playBeep]);
 
     return (
         <audio src={source} ref={audioRef} id="beep"></audio> 

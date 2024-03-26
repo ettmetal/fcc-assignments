@@ -8,7 +8,8 @@ export const clockSlice = createSlice({
             sessionLength: 25 * 60,
             breakLength: 5 * 60,
             timeSinceStart: 0,
-            running: false
+            running: false,
+            playBeep: false
         }
     },
     reducers: {
@@ -24,18 +25,22 @@ export const clockSlice = createSlice({
                 // Phase over
                 state.value.phase = state.value.phase == "Session" ? "Break" : "Session";
                 state.value.timeSinceStart = 0;
+                state.value.playBeep = true;
             }
         },
         start: (state) => {
             state.value.running = true;
+            state.value.playBeep = false;
         },
         stop: (state) => {
             state.value.running = false;
             state.timeSinceStart = 0;
+            state.value.playBeep = false;
         },
         pause: (state) => {
             // It's too easy to forget ".value" - it just feels superfluous
             state.value.running = false;
+            state.value.playBeep = false;
         },
         reset: (state) => {
             state.value.running = false;
@@ -43,6 +48,7 @@ export const clockSlice = createSlice({
             state.value.breakLength = 5 * 60;
             state.value.timeSinceStart = 0;
             state.value.phase = "Session";
+            state.value.playBeep = false;
         }
     }
 });

@@ -14,6 +14,7 @@ function Clock(props) {
 
     // Stuff like this makes it really hard to see how functionality is linked
 
+    // This one ticks the timer
     useEffect(() => {
         let interval;
         if(isRunning) {
