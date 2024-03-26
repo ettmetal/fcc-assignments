@@ -52,6 +52,14 @@ jobs:
           mv ./build ../public/calculator
           cd ../
 
+      - name: Build & copy 25-clock
+        run: |
+          cd ./25-clock
+          npm install
+          npm run build
+          mv ./build ../public/25-clock
+          cd ../
+
       - name: Upload
         uses: actions/upload-pages-artifact@v3
         with:
