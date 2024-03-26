@@ -17,7 +17,7 @@ function Beeper({source}) {
     }, [audioRef, playBeep]);
 
     return (
-        <audio src={source} ref={audioRef} id="beep"></audio> 
+        <audio src={source} ref={audioRef} id="beep" preload="auto"></audio> 
     );
 }
 

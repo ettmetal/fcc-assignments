@@ -23,7 +23,13 @@ function TimerControls(){
                 </button>
             </li>
             <li>
-                <button id="reset" onClick={() => dispatch(reset())}>
+                <button id="reset" onClick={() => {
+                    dispatch(reset());
+                    // !-- Added to make test 28 pass, see
+                    // https://forum.freecodecamp.org/t/25-5-clock-user-story-28-test-fails/488071/6
+                    document.getElementById('beep').pause();
+                    document.getElementById('beep').currentTime = 0;
+                }}>
                     <i className="fa-solid fa-arrows-rotate"></i>
                 </button>
             </li>

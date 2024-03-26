@@ -21,11 +21,14 @@ export const clockSlice = createSlice({
         },
         tick: (state) => {
             state.value.timeSinceStart += 1;
+            if(state.value.timeSinceStart == state.value[`${state.value.phase.toLowerCase()}Length`]){
+                // Phase over
+                state.value.playBeep = true;
+            }
             if(state.value.timeSinceStart > state.value[`${state.value.phase.toLowerCase()}Length`]){
                 // Phase over
                 state.value.phase = state.value.phase == "Session" ? "Break" : "Session";
-                state.value.timeSinceStart = 0;
-                state.value.playBeep = true;
+                state.value.timeSinceStart = 0; 
             }
         },
         start: (state) => {
@@ -43,11 +46,17 @@ export const clockSlice = createSlice({
             state.value.playBeep = false;
         },
         reset: (state) => {
+            // This paradigm really makes it hard to respond to changes - i.e.
+            // it's not an event I can subscribe to elsewhere
             state.value.running = false;
             state.value.sessionLength = 25 * 60;
             state.value.breakLength = 5 * 60;
             state.value.timeSinceStart = 0;
             state.value.phase = "Session";
+            // Solving this by adding a flag feels really hacky - the global 
+            // state is now polluted with something that is a local concern,
+            // and every action needed to be updated to manage it - because
+            // these actions don't seem to be composable
             state.value.playBeep = false;
         }
     }
