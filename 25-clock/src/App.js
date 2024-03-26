@@ -11,7 +11,7 @@ function App() {
         <Clock />
       </main>
       <footer>
-        By <a href="https://www.freecodecamp.org/ettmetal" target="_blank">Joe McGeoch Osborne</a>
+        By <a href="https://www.freecodecamp.org/ettmetal" target="_blank" rel="noreferrer">Joe McGeoch Osborne</a>
       </footer>
     </>
   );

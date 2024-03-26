@@ -21,13 +21,13 @@ export const clockSlice = createSlice({
         },
         tick: (state) => {
             state.value.timeSinceStart += 1;
-            if(state.value.timeSinceStart == state.value[`${state.value.phase.toLowerCase()}Length`]){
+            if(state.value.timeSinceStart === state.value[`${state.value.phase.toLowerCase()}Length`]){
                 // Phase over
                 state.value.playBeep = true;
             }
             if(state.value.timeSinceStart > state.value[`${state.value.phase.toLowerCase()}Length`]){
                 // Phase over
-                state.value.phase = state.value.phase == "Session" ? "Break" : "Session";
+                state.value.phase = state.value.phase === "Session" ? "Break" : "Session";
                 state.value.timeSinceStart = 0; 
             }
         },

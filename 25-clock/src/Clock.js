@@ -26,7 +26,7 @@ function Clock(props) {
             clearInterval(interval);
         }
         return () => clearInterval(interval);
-    },[isRunning, dispatch, tick]);
+    },[isRunning, dispatch]);
 
     return (
         <>
