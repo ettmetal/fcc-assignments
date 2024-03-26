@@ -42,6 +42,7 @@ export const clockSlice = createSlice({
             state.value.sessionLength = 25 * 60;
             state.value.breakLength = 5 * 60;
             state.value.timeSinceStart = 0;
+            state.value.phase = "Session";
         }
     }
 });
